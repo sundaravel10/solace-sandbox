@@ -3,10 +3,12 @@ import util.ConnectionUtil;
 import javax.jms.*;
 import java.util.Scanner;
 
+import static util.ConnectionUtil.createConnection;
+
 public class TopicPublisher {
 
     public static void main(String[] args) throws Exception {
-        Connection connection = ConnectionUtil.createConnection();
+        Connection connection = createConnection();
         connection.start();
         Session session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
         Topic topic = session.createTopic("SANDBOX/PLAY");
